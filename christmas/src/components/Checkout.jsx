@@ -1,4 +1,4 @@
-import { CreditCard, Lock, PartyPopper, Smartphone } from 'lucide-react'
+import { CreditCard, Lock, MessageCircle, PartyPopper, Smartphone } from 'lucide-react'
 import { formatPrice } from '../utils/shop'
 
 export function CheckoutPage({ total, onSubmit, onCancel }) {
@@ -7,9 +7,7 @@ export function CheckoutPage({ total, onSubmit, onCancel }) {
       <h1>Finaliser ma commande</h1>
       <div className="panel">
         <h3 className="panel-total">Total à payer : {formatPrice(total)}</h3>
-        {/* Netlify Form Structure */}
-        <form name="commande" data-netlify="true" onSubmit={onSubmit} className="form">
-          <input type="hidden" name="form-name" value="commande" />
+        <form onSubmit={onSubmit} className="form">
           <div className="field">
             <label htmlFor="nom">Nom complet</label>
             <input id="nom" type="text" name="nom" required />
@@ -29,10 +27,10 @@ export function CheckoutPage({ total, onSubmit, onCancel }) {
               <div className="pay-option"><Smartphone size={20} /> Mobile Money</div>
               <div className="pay-option"><CreditCard size={20} /> Carte Visa</div>
             </div>
-            <p className="pay-note"><Lock size={16} /> Paiement sécurisé (démo)</p>
+            <p className="pay-note"><Lock size={16} /> Le paiement se règle avec nous après confirmation sur WhatsApp</p>
           </div>
 
-          <button type="submit" className="btn btn-primary btn-full">Confirmer la commande</button>
+          <button type="submit" className="btn btn-whatsapp btn-full"><MessageCircle size={18} /> Envoyer ma commande sur WhatsApp</button>
           <button type="button" onClick={onCancel} className="btn btn-ghost btn-full">Annuler</button>
         </form>
       </div>
@@ -43,8 +41,8 @@ export function CheckoutPage({ total, onSubmit, onCancel }) {
 export function SuccessPage({ onBack }) {
   return (
     <div className="page success">
-      <h1><PartyPopper size={36} /> Commande confirmée !</h1>
-      <p>Merci pour votre achat. Notre équipe prépare vos cadeaux et vous contacte pour la livraison.</p>
+      <h1><PartyPopper size={36} /> Commande envoyée !</h1>
+      <p>Votre commande s'est ouverte dans WhatsApp : envoyez le message et nous vous confirmons la livraison très vite.</p>
       <button onClick={onBack} className="btn btn-forest">Retour à la boutique</button>
     </div>
   )
