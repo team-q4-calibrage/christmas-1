@@ -5,7 +5,7 @@ export const products = [
     description: "La grande tendance cocooning. Un plaid ultra-doux avec l'option de broder un prénom. Idéal pour les soirées d'hiver.",
     price: 39.99,
     originalPrice: 59.99,
-    image: "/imgs/plaid.jpg",
+    image: "/imgs/plaid.webp",
     stock: 14,
     badge: "Bestseller 2026"
   },
@@ -15,7 +15,7 @@ export const products = [
     description: "Contrôlez l'ambiance depuis votre smartphone. Des millions de couleurs et des animations de neige féériques.",
     price: 29.99,
     originalPrice: 45.00,
-    image: "/imgs/led.jpg",
+    image: "/imgs/led.webp",
     stock: 7,
     badge: "Le Choix Tech"
   },
@@ -25,7 +25,7 @@ export const products = [
     description: "Bougie en cire d'abeille, thé aux épices de Noël et boule à neige en verre recyclé. Emballage zéro déchet.",
     price: 54.90,
     originalPrice: 65.00,
-    image: "/imgs/coffret.jpg",
+    image: "/imgs/coffret.webp",
     stock: 3,
     badge: "Presque épuisé"
   },
@@ -35,7 +35,7 @@ export const products = [
     description: "Créez la boisson parfaite en famille. Contient du cacao grand cru, des mini-guimauves et des épices de Noël.",
     price: 24.99,
     originalPrice: 35.00,
-    image: "/imgs/chocolat.jpg",
+    image: "/imgs/chocolat.webp",
     stock: 22,
     badge: "Coup de cœur"
   },
@@ -45,7 +45,7 @@ export const products = [
     description: "Transformez votre salon en salle de cinéma pour vos films de Noël préférés. Qualité HD et son intégré.",
     price: 89.99,
     originalPrice: 129.99,
-    image: "/imgs/projecteur.jpg",
+    image: "/imgs/projecteur.webp",
     stock: 5,
     badge: "-30%"
   },
@@ -55,7 +55,7 @@ export const products = [
     description: "Le confort absolu pour garder les pieds au chaud. Design festif élégant, tricotées à la main.",
     price: 19.99,
     originalPrice: null,
-    image: "/imgs/chaussettes.jpg",
+    image: "/imgs/chaussettes.webp",
     stock: 35,
     badge: ""
   },
@@ -65,7 +65,7 @@ export const products = [
     description: "Un design en bois naturel avec une brume apaisante qui parfume votre intérieur d'une odeur de pin frais.",
     price: 45.00,
     originalPrice: 60.00,
-    image: "/imgs/diffuseur.jpg",
+    image: "/imgs/diffuseur.webp",
     stock: 11,
     badge: "Nouveauté"
   },
@@ -75,7 +75,7 @@ export const products = [
     description: "Capturez vos moments magiques en famille. Impression immédiate avec filtres vintage intégrés.",
     price: 119.99,
     originalPrice: 149.99,
-    image: "/imgs/camera.jpg",
+    image: "/imgs/camera.webp",
     stock: 2,
     badge: "Plus que 2"
   }

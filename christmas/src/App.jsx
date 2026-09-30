@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react'
 import {
   ShoppingCart, Gift, Truck, ShieldCheck, Star, MessageCircle,
-  Smartphone, Clock, Eye, CreditCard, Sparkles
+  Smartphone, Eye, CreditCard
 } from 'lucide-react'
 import './theme.css'
 import './overlays.css'
 import './index.css'
+import './extras.css'
 import { products } from './data/products'
 import { formatPrice, whatsappLink } from './utils/shop'
 import GiftAssistant from './components/GiftAssistant'
 import ProductModal from './components/ProductModal'
 import CartDrawer from './components/CartDrawer'
 import { CheckoutPage, SuccessPage } from './components/Checkout'
+import Countdown from './components/Countdown'
+import SiteHeader from './components/SiteHeader'
 
 const WHATSAPP_HELLO = 'Bonjour ! Je voudrais commander pour Noël 🎄'
 
@@ -104,19 +107,7 @@ function App() {
         🎄 Dernières commandes le <strong>20 décembre</strong> pour une livraison avant le réveillon
       </div>
 
-      <header className="site-header">
-        <div className="wrap">
-          <div className="logo"><Sparkles size={20} className="logo-star" /><span>L'Atelier de <em>Noël</em></span></div>
-          <nav className="nav">
-            <a href="#produits">Cadeaux</a>
-            <a href="#assistant">Assistant Cadeau</a>
-            <a href="#livraison">Livraison</a>
-            <button onClick={() => setIsCartOpen(true)} className="btn btn-forest btn-sm">
-              <ShoppingCart size={16} /> Panier <span className="cart-count">{cartCount}</span>
-            </button>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader cartCount={cartCount} onOpenCart={() => setIsCartOpen(true)} />
 
       <main>
         <section className="hero">
@@ -130,14 +121,11 @@ function App() {
                 <a href="#produits" className="btn btn-primary">Découvrir les cadeaux</a>
                 <a href="#assistant" className="btn btn-outline-light">Trouver mon cadeau</a>
               </div>
-              <p className="urgency">
-                <Clock size={16} aria-hidden="true" />
-                Dernière commande le 20 décembre pour une livraison avant le 24
-              </p>
+              <Countdown />
             </div>
             <div className="hero-visual">
               <div className="hero-frame">
-                <img src="/imgs/hero.jpg" alt="Cadeaux emballés en papier rouge avec rubans dorés et branches de sapin" className="hero-img" />
+                <img src="/imgs/hero.webp" alt="Cadeaux emballés en papier rouge avec rubans dorés et branches de sapin" className="hero-img" />
                 <div className="hero-seal"><span><strong>2026</strong>Édition Noël</span></div>
               </div>
             </div>
@@ -185,6 +173,7 @@ function App() {
                   <div className="card-body">
                     <h3><button onClick={() => setSelectedProduct(product)}>{product.name}</button></h3>
                     <p className="card-desc">{product.description}</p>
+                    {product.stock <= 5 && <p className="stock-low">Plus que {product.stock} en stock</p>}
                     <div className="card-footer">
                       <div className="price-row">
                         <span className="price-new">{formatPrice(product.price)}</span>
@@ -247,6 +236,8 @@ function App() {
             <div>
               <div className="payment-label">Paiement</div>
               <div className="payment-value">Mobile Money · Visa</div>
+              <div className="payment-label" style={{ marginTop: 16 }}>Contact</div>
+              <a className="payment-value" href="tel:+2290153508812">+229 01 53 50 88 12</a>
             </div>
             <a href={whatsappLink(WHATSAPP_HELLO)} target="_blank" rel="noreferrer" className="btn btn-whatsapp">
               <Smartphone size={18} /> Écrire sur WhatsApp

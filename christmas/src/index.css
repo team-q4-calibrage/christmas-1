@@ -195,8 +195,6 @@
   .hero-seal { right: 8px; width: 88px; height: 88px; font-size: 12px; }
   .hero-seal strong { font-size: 18px; }
   .assistant-text h2, .help h2 { font-size: 30px; }
-  .modal-grid { flex-direction: column; }
-  .modal-grid img { min-height: 0; height: 240px; }
 }
 
 @media (max-width: 768px) {
@@ -213,4 +211,33 @@
   .step-arrow { display: none; }
   .step { min-width: 0; flex: 1 1 0; padding: 10px 8px; }
   .assistant-panel { padding: 22px; }
+}
+
+/* Écrans tactiles : le bouton Aperçu reste visible (pas de survol) */
+@media (hover: none) {
+  .card-preview { opacity: 1; transform: none; }
+}
+
+/* Petit mobile : 2 cartes par ligne, description réservée à l'aperçu */
+@media (max-width: 600px) {
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .card { border-radius: 12px; }
+  .card:hover { transform: none; }
+  .card-photo img { aspect-ratio: 1; }
+  .card-badge { top: 8px; left: 8px; padding: 3px 8px; font-size: 9px; }
+  .card-preview { bottom: 8px; right: 8px; padding: 4px 8px; font-size: 11px; }
+  .card-body { padding: 12px; gap: 4px; }
+  .card-body h3 { font-size: 15px; line-height: 1.25; }
+  .card-desc { display: none; }
+  .card-footer { gap: 10px; padding-top: 6px; }
+  .price-row { flex-wrap: wrap; column-gap: 6px; row-gap: 0; }
+  .price-new { font-size: 18px; }
+  .price-old { font-size: 12px; }
+  .card-footer .btn { min-height: 40px; padding: 8px 10px; font-size: 13px; }
+  .card-footer .btn svg { display: none; }
+  .hero-text h1 { font-size: 34px; }
+  .hero-frame::before { display: none; }
+  .section-head { margin-bottom: 32px; }
+  .review { padding: 26px 20px 20px; }
+  .footer-row { flex-direction: column; gap: 20px; }
 }

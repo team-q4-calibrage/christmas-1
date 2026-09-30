@@ -1,0 +1,46 @@
+/* Compte à rebours, stock faible et menu mobile */
+
+.countdown { display: flex; flex-direction: column; gap: 10px; }
+.countdown-title { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-soft); }
+.countdown-units { display: flex; gap: 10px; }
+.countdown-unit {
+  min-width: 68px; padding: 10px 8px; text-align: center; border-radius: 12px;
+  background: rgba(251, 247, 240, 0.08); border: 1px solid rgba(201, 162, 75, 0.45);
+}
+.countdown-unit strong { display: block; font-family: var(--font-heading); font-size: 28px; line-height: 1.1; color: var(--on-dark); }
+.countdown-unit span { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-dark-soft); }
+
+.stock-low { font-size: 13px; font-weight: 600; color: var(--red); }
+
+.menu-toggle {
+  display: none; width: 44px; height: 44px; border-radius: 50%; place-items: center;
+  border: 1px solid var(--line); background: var(--white); color: var(--fir);
+}
+.mobile-nav { display: none; }
+
+@media (max-width: 900px) {
+  .menu-toggle { display: grid; }
+  .mobile-nav {
+    display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--cream); border-bottom: 1px solid var(--line);
+    box-shadow: 0 16px 30px rgba(28, 26, 23, 0.12); padding: 8px var(--gutter) 16px;
+    transform-origin: top; animation: fadeUp 0.2s ease both;
+  }
+  .mobile-nav a {
+    display: flex; align-items: center; min-height: 52px; font-size: 17px;
+    font-family: var(--font-heading); color: var(--fir); border-bottom: 1px solid var(--line);
+  }
+  .mobile-nav a:last-child { border-bottom: none; }
+  .mobile-nav a:hover { color: var(--red); }
+}
+
+@media (max-width: 600px) {
+  .countdown-unit { min-width: 0; flex: 1; }
+  .countdown-unit strong { font-size: 22px; }
+  .stock-low { font-size: 12px; }
+  .header-actions { gap: 8px; }
+  .header-actions .btn-sm { padding: 9px 12px; gap: 6px; }
+  .cart-label { display: none; }
+  .site-header .wrap { gap: 8px; }
+  .logo { font-size: 17px; gap: 6px; }
+}
