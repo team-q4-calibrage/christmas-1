@@ -1,0 +1,219 @@
+:root {
+  --color-primary: #D42426; /* Deep Christmas Red */
+  --color-secondary: #165B33; /* Forest Green */
+  --color-accent: #F8B229; /* Festive Gold */
+  --color-bg-light: #FDFBF7; /* Warm Snow White */
+  --color-text-dark: #1A1A1A;
+  --color-text-light: #FFFFFF;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Typography */
+.text-center { text-align: center; }
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-accent { color: var(--color-accent); }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  min-height: 48px; /* Mobile accessibility */
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  box-shadow: 0 4px 15px rgba(212, 36, 38, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #b51c1e;
+  transform: translateY(-2px);
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-text-dark);
+  box-shadow: 0 4px 15px rgba(248, 178, 41, 0.3);
+}
+
+.btn-accent:hover {
+  background-color: #e5a425;
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: white;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* Animations */
+@keyframes snow {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0.3; }
+}
+
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: white;
+  font-size: 1.5rem;
+  user-select: none;
+  z-index: 1000;
+  pointer-events: none;
+  animation: snow linear infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse-anim {
+  animation: pulse 2s infinite;
+}
+
+/* Components */
+.card {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.badge {
+  background: var(--color-accent);
+  color: var(--color-text-dark);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Utility */
+.d-flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.align-center { align-items: center; }
+.gap-3 { gap: 1rem; }
+.gap-4 { gap: 1.5rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.py-5 { padding-top: 4rem; padding-bottom: 4rem; }
+
+/* Sticky Mobile Button */
+.mobile-sticky-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-btn {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: white;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    z-index: 50;
+  }
+}
+
+/* Guarantee Section */
+.guarantee-box {
+  background: white;
+  border: 2px dashed var(--color-secondary);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Cart Overlay */
+.cart-overlay {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 99;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cart-sidebar {
+  background: white;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+}
